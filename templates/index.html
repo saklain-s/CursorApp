@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UnAI - AI Content Detection</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <i class="fas fa-search"></i>
+                <h1>UnAI</h1>
+            </div>
+            <p class="tagline">Detect AI-Generated Content with Advanced Analysis</p>
+        </header>
+
+        <main>
+            <div class="upload-section">
+                <div class="upload-area" id="uploadArea">
+                    <div class="upload-content">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <h3>Drop your file here or click to browse</h3>
+                        <p>Supports images, videos, and audio files</p>
+                        <p class="file-types">PNG, JPG, MP4, MP3, WAV, and more</p>
+                    </div>
+                    <input type="file" id="fileInput" accept="image/*,video/*,audio/*" hidden>
+                </div>
+            </div>
+
+            <div class="analysis-section" id="analysisSection" style="display: none;">
+                <div class="file-info" id="fileInfo">
+                    <div class="file-preview" id="filePreview"></div>
+                    <div class="file-details">
+                        <h4 id="fileName"></h4>
+                        <p id="fileType"></p>
+                    </div>
+                </div>
+
+                <div class="loading" id="loading">
+                    <div class="spinner"></div>
+                    <p>Analyzing content for AI generation...</p>
+                </div>
+
+                <div class="results" id="results" style="display: none;">
+                    <div class="result-header">
+                        <div class="verdict" id="verdict">
+                            <i class="fas fa-question-circle"></i>
+                            <span id="verdictText">Analyzing...</span>
+                        </div>
+                        <div class="confidence" id="confidence">
+                            <div class="confidence-bar">
+                                <div class="confidence-fill" id="confidenceFill"></div>
+                            </div>
+                            <span id="confidenceText">0%</span>
+                        </div>
+                    </div>
+
+                    <div class="analysis-details" id="analysisDetails">
+                        <h4>Analysis Details</h4>
+                        <div class="features-grid" id="featuresGrid"></div>
+                    </div>
+
+                    <div class="explanation" id="explanation">
+                        <h4>How it works</h4>
+                        <div id="explanationContent"></div>
+                    </div>
+                </div>
+
+                <button class="analyze-another" id="analyzeAnother" style="display: none;">
+                    <i class="fas fa-plus"></i>
+                    Analyze Another File
+                </button>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 UnAI - Advanced AI Content Detection</p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
